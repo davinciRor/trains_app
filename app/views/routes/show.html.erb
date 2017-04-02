@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Имя:</strong>
+  <%= @route.name %>
+</p>
+
+<td><%= link_to 'Назад', routes_path %></td>
+<td><%= link_to 'Изменить', edit_route_path(@route) %></td>
+<td><%= link_to 'Удалить', @route, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
