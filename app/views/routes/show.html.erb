@@ -1,8 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Имя:</strong>
+  <strong>Name:</strong>
   <%= @route.name %>
+</p>
+<p>
+  <strong>Stations in route:</strong>
+</p>
+<p>
+  <% if @route.railway_stations.empty? %>
+      Stations list empty
+  <% else %>
+    <ul>
+      <% @route.railway_stations.each do |station| %>
+          <li><%= station.title %></li>
+      <% end %>
+    </ul>
+<% end %>
+</p>
+<p>
+  <strong>Trains in route:</strong>
+</p>
+<p>
+  <% if @route.trains.empty? %>
+      Routes list empty
+  <% else %>
+    <ul>
+      <% @route.routes.each do |route| %>
+          <li><%= route.name %></li>
+      <% end %>
+    </ul>
+<% end %>
 </p>
 
 <td><%= link_to 'Назад', routes_path %></td>
