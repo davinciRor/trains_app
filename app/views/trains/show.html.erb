@@ -23,5 +23,37 @@
   <% end %>
 </p>
 
+<div>
+  <strong>Carriages</strong>
+  <% if @train.carriages.present?  %>
+      <p><storng>COUNT OF BUSINESS</storng> <%= @train.business_carriages_count %></p>
+      <p><storng>COUNT OF ECONOM</storng> <%= @train.econom_carriages_count %></p>
+      <table>
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>Type</th>
+          <th>Top Seats</th>
+          <th>Bottom Seats</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% @train.carriages.each do |carriage| %>
+            <tr>
+              <td><%= carriage.id %></td>
+              <td><%= carriage.kind %></td>
+              <td><%= carriage.top_seats %></td>
+              <td><%= carriage.bottom_seats %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <br>
+  <% else %>
+      Don`t know
+  <% end %>
+</div>
+
+<%= link_to 'Add Carriage', new_train_carriage_path(@train) %>
 <%= link_to 'Edit', edit_train_path(@train) %>
 <%= link_to 'Back', trains_path %>
