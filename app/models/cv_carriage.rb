@@ -1,0 +1,3 @@
+class CVCarriage < Carriage
+
+end

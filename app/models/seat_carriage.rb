@@ -1,0 +1,2 @@
+class SeatCarriage < Carriage
+end

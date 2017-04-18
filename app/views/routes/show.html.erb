@@ -12,8 +12,17 @@
       Stations list empty
   <% else %>
     <ul>
-      <% @route.railway_stations.each do |station| %>
-          <li><%= station.title %></li>
+      <% @route.railway_stations.ordered.each do |station| %>
+          <li>
+            <p> <strong><%= station.title %></strong>
+              <%= form_tag update_position_railway_station_path(station.id), method: :post do %>
+                  <%= hidden_field_tag :route_id, @route.id %>
+                  <%= label_tag :station_index %>
+                  <%= number_field_tag :station_index, station.index(@route.id) %>
+                  <%= submit_tag 'Save' %>
+              <% end %>
+            </p>
+          </li>
       <% end %>
     </ul>
 <% end %>
