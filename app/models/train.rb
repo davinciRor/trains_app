@@ -10,4 +10,8 @@ class Train < ActiveRecord::Base
   def self.order_carriage
     true
   end
+
+  def seats_by_type(carriage_type, seats_type)
+    carriages.where(type: carriage_type).sum(seats_type)
+  end
 end
