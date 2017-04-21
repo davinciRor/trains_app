@@ -1,9 +1,9 @@
-<%= form_for([@train, @carriage]) do |f| %>
+<%= form_for([@train, @carriage.becomes(Carriage)]) do |f| %>
     <%= render 'common/errors', resource: @carriage %>
 
     <div class="field">
       <%= f.label :type %><br>
-      <%= f.select :type, Carriage.types, selected: @carriage.type || 'EconomCarriage' %>
+      <%= f.select :type, Carriage::TYPES, selected: @carriage.type || 'EconomCarriage' %>
     </div>
 
     <div class="field top_seats seats">
