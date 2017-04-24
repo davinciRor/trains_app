@@ -1,0 +1,20 @@
+<h1>Result</h1>
+<h2>Routes</h2>
+<ul>
+  <% @routes.each do |route| %>
+    <li>
+      <strong>Route <%= route.id %></strong>
+      <p>Outgo time <%= route.outgo_time %></p>
+      <p>Arrive time <%= route.arrive_time %></p>
+      <h3>Trains</h3>
+      <ul>
+        <% route.trains.each do |train| %>
+          <li>
+            <p><%= train.number %></p>
+            <p><%= link_to 'Buy ticket', new_train_ticket_path(train) %></p>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
