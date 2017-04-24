@@ -1,23 +1,17 @@
 class Train < ActiveRecord::Base
   has_many :tickets
-  has_many :carriages
+  has_many :carriages, -> (train) { order("number #{train.order_carriage ? 'ASC' : 'DESC'}") }
 
   belongs_to :route
   belongs_to :current_station, class_name: 'RailwayStation', foreign_key: :current_station_id
 
-  def business_carriages
-    carriages.business
+  validates :order_carriage, inclusion: { in: [ true, false ] }
+
+  def self.order_carriage
+    true
   end
 
-  def econom_carriages
-    carriages.econom
-  end
-
-  def business_carriages_count
-    business_carriages.count
-  end
-
-  def econom_carriages_count
-    econom_carriages.count
+  def seats_by_type(carriage_type, seats_type)
+    carriages.where(type: carriage_type).sum(seats_type)
   end
 end
