@@ -4,6 +4,16 @@
   <%= render 'common/errors', resource: @ticket %>
 
   <div class="field">
+    <%= f.label :base_station %><br>
+    <%= f.text_field :base_station, value: @start_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_station %><br>
+    <%= f.text_field :end_station, value: @end_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
     <%= f.label :user_first_name %><br>
     <%= f.text_field :user_first_name %>
   </div>

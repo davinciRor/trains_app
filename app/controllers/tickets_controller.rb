@@ -7,6 +7,8 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @start_station = RailwayStation.find(params[:start_station])
+    @end_station = RailwayStation.find(params[:end_station])
   end
 
   def create
@@ -22,7 +24,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:user_first_name, :user_last_name, :user_middle_name, :user_passport)
+    params.require(:ticket).permit(:user_first_name, :user_last_name, :user_middle_name, :user_passport, :base_station, :end_station)
   end
 
   def find_train
