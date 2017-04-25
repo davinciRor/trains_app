@@ -35,18 +35,16 @@ class RailwayStationsController < ApplicationController
 
   def update_position
     if @railway_station.update_position(@route, params[:station_index])
-      redirect_to route_url(@route), notice: 'Station index was successfully updated.'
-    else
-      redirect_to route_url(@route)
+      flash[:notice] = 'Station index was successfully updated.'
     end
+    redirect_to route_url(@route)
   end
 
   def update_time
     if @railway_station.update_time(@route, params[:arrive_time], params[:outgo_time])
-      redirect_to route_url(@route), notice: 'Station index was successfully updated.'
-    else
-      redirect_to route_url(@route)
+      flash[:notice] = 'Station index was successfully updated.'
     end
+    redirect_to route_url(@route)
   end
 
   def destroy

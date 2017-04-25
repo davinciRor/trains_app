@@ -4,8 +4,8 @@
   <% @routes.each do |route| %>
     <li>
       <strong>Route <%= route.id %></strong>
-      <p>Outgo time <%= route.outgo_time %></p>
-      <p>Arrive time <%= route.arrive_time %></p>
+      <p>Outgo time <%= @start_station.outgo_time %></p>
+      <p>Arrive time <%= @end_station.arrive_time %></p>
       <h3>Trains</h3>
       <ul>
         <% route.trains.each do |train| %>

@@ -19,17 +19,9 @@ class Route < ActiveRecord::Base
     railway_stations.last
   end
 
-  def arrive_time
-    last_station.railway_stations_routes.where(route: self).first.arrive_time
-  end
-
-  def outgo_time
-    first_station.railway_stations_routes.where(route: self).first.outgo_time
-  end
-
-  def self.searched_routes(first_station_id, last_station_id)
-    Route.with_station(RailwayStation.find(first_station_id)) &
-    Route.with_station(RailwayStation.find(last_station_id))
+  def self.searched_routes(start_station, end_station)
+    Route.with_station(start_station) &
+    Route.with_station(end_station)
   end
 
   private
