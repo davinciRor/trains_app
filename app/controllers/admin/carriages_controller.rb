@@ -1,4 +1,4 @@
-class Admin::CarriagesController < ApplicationController
+class Admin::CarriagesController < Admin::BaseController
   before_action :find_train, only: [:create, :new]
   before_action :find_carriage, only: [:show]
 
