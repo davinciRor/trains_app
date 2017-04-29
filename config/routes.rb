@@ -1,20 +1,24 @@
 Rails.application.routes.draw do
-  resources :trains do
-    resources :carriages, only: [:new, :create]
-    resources :tickets, only: [:new, :create]
-  end
+  devise_for :users
 
   resources :tickets, only: [:index]
 
-  resources :railway_stations do
-    member do
-      patch :update_position
-      patch :update_time
+  namespace :admin do
+    resources :railway_stations do
+      member do
+        patch :update_position
+        patch :update_time
+      end
     end
-  end
 
-  resources :routes
-  resources :carriages, only: [:show]
+    resources :trains do
+      resources :carriages, only: [:new, :create]
+      resources :tickets, only: [:new, :create]
+    end
+
+    resources :routes
+    resources :carriages, only: [:show]
+  end
 
   root 'searches#show'
 
