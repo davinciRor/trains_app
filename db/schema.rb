@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429193155) do
+ActiveRecord::Schema.define(version: 20170501171852) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "top_seats"
@@ -87,6 +87,8 @@ ActiveRecord::Schema.define(version: 20170429193155) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.boolean  "admin"
+    t.text     "first_name"
+    t.text     "last_name"
   end
 
 end
