@@ -15,8 +15,21 @@ class RailwayStation < ActiveRecord::Base
     staion_route.update(station_index: index) if staion_route
   end
 
+  def update_time(route, arrive_time, outgo_time)
+    staion_route = station_route(route)
+    staion_route.update(arrive_time: arrive_time, outgo_time: outgo_time) if staion_route
+  end
+
   def index(route)
     station_route(route)&.station_index
+  end
+
+  def outgo_time(route)
+    station_route(route)&.outgo_time
+  end
+
+  def arrive_time(route)
+    station_route(route)&.arrive_time
   end
 
   protected

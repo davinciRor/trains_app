@@ -1,0 +1,40 @@
+<h1>Form for buy ticket</h1>
+
+<%= form_for [@train, @ticket] do |f| %>
+  <%= render 'common/errors', resource: @ticket %>
+
+  <div class="field">
+    <%= f.label :base_station %><br>
+    <%= f.text_field :base_station, value: @start_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_station %><br>
+    <%= f.text_field :end_station, value: @end_station.title, disabled: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_first_name %><br>
+    <%= f.text_field :user_first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_last_name %><br>
+    <%= f.text_field :user_first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_middle_name %><br>
+    <%= f.text_field :user_first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :user_passport %><br>
+    <%= f.text_field :user_passport %>
+  </div>
+
+  <div class="field">
+    <%= f.submit 'Create Ticket' %><br>
+  </div>
+
+<% end %>

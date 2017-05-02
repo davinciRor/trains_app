@@ -13,16 +13,26 @@
   <% else %>
     <ul>
       <% @route.railway_stations.ordered.each do |station| %>
-          <li>
-            <p> <strong><%= station.title %></strong>
-              <%= form_tag update_position_railway_station_path(station.id), method: :post do %>
-                  <%= hidden_field_tag :route_id, @route.id %>
-                  <%= label_tag :station_index %>
-                  <%= number_field_tag :station_index, station.index(@route.id) %>
-                  <%= submit_tag 'Save' %>
-              <% end %>
-            </p>
-          </li>
+        <li>
+          <p> <strong><%= station.title %></strong>
+            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+                <%= hidden_field_tag :route_id, @route.id %>
+                <%= label_tag :station_index %>
+                <%= number_field_tag :station_index, station.index(@route.id) %>
+                <%= submit_tag 'Save' %>
+            <% end %>
+          </p>
+          <p>
+            <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= label_tag :arrive_time %>
+              <%= datetime_field_tag :arrive_time, station.arrive_time(@route.id) %>
+              <%= label_tag :outgo_time %>
+              <%= datetime_field_tag :outgo_time, station.outgo_time(@route.id) %>
+              <%= submit_tag 'Save' %>
+            <% end %>
+          </p>
+        </li>
       <% end %>
     </ul>
 <% end %>
@@ -35,8 +45,8 @@
       Routes list empty
   <% else %>
     <ul>
-      <% @route.routes.each do |route| %>
-          <li><%= route.name %></li>
+      <% @route.trains.each do |train| %>
+          <li><%= train.number %></li>
       <% end %>
     </ul>
 <% end %>
