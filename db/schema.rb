@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170424132559) do
+ActiveRecord::Schema.define(version: 20170501171852) do
 
   create_table "carriages", force: :cascade do |t|
     t.integer  "top_seats"
@@ -77,6 +77,18 @@ ActiveRecord::Schema.define(version: 20170424132559) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
+    t.boolean  "admin"
+    t.text     "first_name"
+    t.text     "last_name"
   end
 
 end

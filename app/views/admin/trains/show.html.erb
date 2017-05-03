@@ -1,0 +1,62 @@
+<p>
+  <strong>Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <strong>Station:</strong>
+  <% if @train.current_station.present?  %>
+    <%= @train.current_station.title %>
+  <% else %>
+    Don`t know
+  <% end %>
+</p>
+
+<p>
+  <strong>Route</strong>
+  <% if @train.route.present?  %>
+    <%= @train.route.name %>
+  <% else %>
+    Don`t know
+  <% end %>
+</p>
+
+<div>
+  <strong>Carriages</strong>
+  <% if @train.order_carriage %>
+    <p><strong>From head</strong></p>
+  <% else %>
+    <p><strong>From tail</strong></p>
+  <% end %>
+  <% if @train.carriages.present?  %>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Type</th>
+        <th>Top Seats</th>
+        <th>Bottom Seats</th>
+        <th>Number</th>
+      </tr>
+      </thead>
+      <tbody>
+        <% @train.carriages.each do |carriage| %>
+          <tr>
+            <td><%= carriage.id %></td>
+            <td><%= carriage.type %></td>
+            <td><%= carriage.top_seats %></td>
+            <td><%= carriage.bottom_seats %></td>
+            <td><%= link_to "#{carriage.number}", carriage_path(carriage) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <br>
+  <% else %>
+    Don`t know
+  <% end %>
+</div>
+
+<%= link_to 'Add Carriage', new_train_carriage_path(@train) %>
+<%= link_to 'Edit', edit_train_path(@train) %>
+<%= link_to 'Back', trains_path %>

@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to ticket.id, admin_ticket_path(ticket) %></td>
+  <td><%= ticket.user.email %></td>
+  <td><%= link_to 'Delete', admin_ticket_path(ticket), method: :delete %></td>
+</tr>

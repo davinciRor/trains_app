@@ -1,8 +1,9 @@
 <tr>
-  <td><%= ticket.id %></td>
+  <td><%= link_to "#{ticket.id}", ticket_path(ticket) %></td>
   <td><%= ticket.user.id %></td>
   <td><%= ticket.user_first_name %></td>
   <td><%= ticket.user_last_name %></td>
   <td><%= ticket.user_middle_name %></td>
   <td><%= ticket.user_passport %></td>
+  <td><%= link_to 'DELETE', ticket_path(ticket), method: :delete %></td>
 </tr>

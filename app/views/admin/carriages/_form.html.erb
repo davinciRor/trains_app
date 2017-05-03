@@ -1,0 +1,37 @@
+<%= form_for([:admin, @train, @carriage.becomes(Carriage)]) do |f| %>
+    <%= render 'common/errors', resource: @carriage %>
+
+    <div class="field">
+      <%= f.label :type %><br>
+      <%= f.select :type, Carriage::TYPES, selected: @carriage.type || 'EconomCarriage' %>
+    </div>
+
+    <div class="field top_seats seats">
+      <%= f.label :top_seats %><br>
+      <%= f.number_field :top_seats %>
+    </div>
+
+    <div class="field bottom_seats seats">
+      <%= f.label :bottom_seats %><br>
+      <%= f.number_field :bottom_seats %>
+    </div>
+
+    <div class="field side_top_seats seats">
+      <%= f.label :side_top_seats %><br>
+      <%= f.number_field :side_top_seats %>
+    </div>
+
+    <div class="field side_bottom_seats seats">
+      <%= f.label :side_bottom_seats %><br>
+      <%= f.number_field :side_bottom_seats %>
+    </div>
+
+    <div class="field econom_seats seats">
+      <%= f.label :econom_seats %><br>
+      <%= f.number_field :econom_seats %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+<% end %>
