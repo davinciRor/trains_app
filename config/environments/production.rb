@@ -63,6 +63,7 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = { host: 'desolate-earth-21356.herokuapp.com'}
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -76,4 +77,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.sendgrid.net",
+      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => 'apikey',
+      :password  => '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', # SMTP password is any valid API key, when user_name is "apikey".
+      :authentication => 'login',
+      :domain => 'desolate-earth-21356.herokuapp.com', # your domain to identify your server when connecting
+  }
 end

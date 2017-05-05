@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }
 
-  resources :tickets, only: [:index]
+  resources :tickets, only: [:index, :show]
 
   namespace :admin do
     resources :welcomes, only: [:index]

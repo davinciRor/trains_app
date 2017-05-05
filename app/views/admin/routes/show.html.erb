@@ -13,7 +13,7 @@
       <% @route.railway_stations.ordered.each do |station| %>
         <li>
           <p> <strong><%= station.title %></strong>
-            <%= form_tag update_position_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_position_admin_railway_station_path(station), method: :patch do %>
                 <%= hidden_field_tag :route_id, @route.id %>
                 <%= label_tag :station_index %>
                 <%= number_field_tag :station_index, station.index(@route.id) %>
@@ -21,7 +21,7 @@
             <% end %>
           </p>
           <p>
-            <%= form_tag update_time_railway_station_path(station), method: :patch do %>
+            <%= form_tag update_time_admin_railway_station_path(station), method: :patch do %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= label_tag :arrive_time %>
               <%= datetime_field_tag :arrive_time, station.arrive_time(@route.id) %>
@@ -51,5 +51,5 @@
 </p>
 
 <td><%= link_to 'Назад', admin_routes_path %></td>
-<td><%= link_to 'Изменить', admin_edit_route_path(@route) %></td>
+<td><%= link_to 'Изменить', edit_admin_route_path(@route) %></td>
 <td><%= link_to 'Удалить', [:admin, @route], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
