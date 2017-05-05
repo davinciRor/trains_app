@@ -77,4 +77,13 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.sendgrid.net",
+      :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => 'apikey',
+      :password  => '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', # SMTP password is any valid API key, when user_name is "apikey".
+      :authentication => 'login',
+      :domain => 'desolate-earth-21356.herokuapp.com', # your domain to identify your server when connecting
+  }
 end

@@ -12,7 +12,13 @@ ru:
         number: 'Номер'
         current_station: 'Текущая станция'
         route: 'Маршрут'
-
     errors:
       messages:
         blank: 'Не может быть пустым'
+      models:
+        user:
+          attributes:
+            email:
+              taken:
+
+ru.activerecord.errors.models.user.attributes.email.taken
