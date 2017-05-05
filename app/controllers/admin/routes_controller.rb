@@ -32,12 +32,25 @@ class Admin::RoutesController < Admin::BaseController
     end
   end
 
+  def update_name
+    @route = Route.find(params[:route_id])
+    if @route.update(route_name_params)
+      redirect_to admin_routes_path, notice: 'Route was successfully update.'
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @route.destroy
     redirect_to admin_routes_url, notice: 'Route was successfully destroyed.'
   end
 
   private
+
+  def route_name_params
+    params.require(:route).permit(:name)
+  end
 
   def route_params
     params.require(:route).permit(:name, railway_station_ids: [])

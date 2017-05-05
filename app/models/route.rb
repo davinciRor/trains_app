@@ -6,7 +6,7 @@ class Route < ActiveRecord::Base
   validates :name, presence: true
   validate :stations_count
 
-  before_validation :set_name
+  before_validation :set_name, on: :create
 
   scope :ordered_railway_stations, -> { joins(:railway_stations_routes).order('railway_stations_routes.station_index') }
   scope :with_station, -> (station) { Route.joins(:railway_stations).where('railway_stations.id = ?', station.id) }
