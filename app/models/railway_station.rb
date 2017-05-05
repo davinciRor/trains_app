@@ -4,6 +4,8 @@ class RailwayStation < ActiveRecord::Base
   has_many :trains, inverse_of: :current_station, foreign_key: 'current_station_id'
 
 
+  validates :title, presence: true
+
   scope :ordered, -> {
     select('railway_stations.*, railway_stations_routes.station_index').
     joins(:railway_stations_routes).

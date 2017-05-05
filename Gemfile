@@ -35,6 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'letter_opener'
 
+gem "therubyracer"
+gem "twitter-bootstrap-rails"
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'

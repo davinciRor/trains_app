@@ -1,0 +1,34 @@
+ru:
+  hello: 'Привет'
+  common:
+    back: 'Назад'
+    edit: 'Редактировать'
+    show: 'Показать'
+    new: 'Создать'
+    delete: 'Удалить'
+    errors: 'При заполнении формы возникли ошибки'
+  admin:
+    railway_stations:
+      new:
+        title: 'Новая станция'
+      edit:
+        title: 'Редактировать станцию'
+      show:
+        title: 'Название'
+      index:
+        list: 'Список станций'
+        title: 'Название'
+      form:
+        submit: '%{action} станцию'
+        title: 'Название'
+    trains:
+      new:
+        title: 'Новый поезд'
+      edit:
+        title: 'Редактировать поезд'
+      form:
+        submit: '%{action} поезд'
+        sort: 'С головы'
+      index:
+        title: 'Поезда'
+        number: 'Номер'
