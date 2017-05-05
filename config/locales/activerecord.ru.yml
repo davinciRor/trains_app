@@ -19,4 +19,4 @@ ru:
         user:
           attributes:
             email:
-              taken: 'email error'
+              taken: 'Такой email уже сущкствует'
