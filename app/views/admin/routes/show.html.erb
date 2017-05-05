@@ -51,5 +51,5 @@
 </p>
 
 <td><%= link_to 'Назад', admin_routes_path %></td>
-<td><%= link_to 'Изменить', admin_edit_route_path(@route) %></td>
+<td><%= link_to 'Изменить', edit_admin_route_path(@route) %></td>
 <td><%= link_to 'Удалить', [:admin, @route], method: :delete, data: { confirm: 'Вы уверены?' } %></td>
