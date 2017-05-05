@@ -1,17 +1,17 @@
-<h1>Find Ticket</h1>
+<div class="row">
+  <h1>Find Ticket</h1>
+</div>
 
-<div>
-  <%= form_tag search_path do %>
-      <div>
-        <p>First Station</p>
-        <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title) %>
+<div class="row">
+  <%= form_tag search_path, class: 'form-inline' do %>
+      <label class="sr-only" for="inlineFormInputGroup">First Station</label>
+      <div class="input-group mb-4 mr-sm-4 mb-sm-4">
+        <%= select_tag :start_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
       </div>
-      <div>
-        <p>Last Station</p>
-        <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title) %>
+      <label class="sr-only" for="inlineFormInputGroup">Last Station</label>
+      <div class="input-group mb-4 mr-sm-4 mb-sm-4">
+        <%= select_tag :end_station, options_from_collection_for_select(@stations, :id, :title), class: 'form-control' %>
       </div>
-      <div>
-        <p><%= submit_tag "Search" %></p>
-      </div>
+      <%= submit_tag "Search", class: 'btn btn-primary' %>
   <% end %>
 </div>

@@ -1,11 +1,11 @@
 <%= form_for [:admin, @railway_station] do |f| %>
   <%= render 'common/errors', resource: @railway_station %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="field form-group">
+    <%= f.text_field :title, class: 'form-control', placeholder: t('.title') %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="form-group">
+    <%= f.submit t('.submit', action: @railway_station.new_record? ? 'Создать' : 'Изменить' ), class: 'btn btn-primary'%>
   </div>
 <% end %>
