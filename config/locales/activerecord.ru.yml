@@ -19,6 +19,4 @@ ru:
         user:
           attributes:
             email:
-              taken:
-
-ru.activerecord.errors.models.user.attributes.email.taken
+              taken: 'email error'
