@@ -31,7 +31,7 @@ class Route < ActiveRecord::Base
   end
 
   def stations_count
-    if railway_stations.сount < 2
+    if railway_stations.size < 2
       errors.add(:base, 'Route must have minimum 2 station')
     end
   end
