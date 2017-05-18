@@ -1,27 +1,31 @@
-<%= form_for([:admin, @train]) do |f| %>
-  <%= render 'common/errors', resource: @train %>
+<%= form_for([:admin, train], html: {style: "display: #{hidden ? 'none' : 'block'}"}) do |f| %>
+  <%= render 'common/errors', resource: train %>
 
   <div class="form-group">
-    <%= f.label :number %>
+    <% if not_index %>
+      <%= f.label :number %>
+    <% end %>
     <%= f.text_field :number, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :current_station %>
-    <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, class: 'form-control' %>
-  </div>
+  <% if not_index %>
+    <div class="form-group">
+      <%= f.label :current_station %>
+      <%= f.collection_select :current_station_id, RailwayStation.all, :id, :title, {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :route %>
+      <%= f.collection_select :route_id, Route.all, :id, :name, {}, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label t('.sort') %>
+      <%= f.select :order_carriage, [true, false], {}, class: 'form-control' %>
+    </div>
+  <% end %>
 
   <div class="form-group">
-    <%= f.label :route %>
-    <%= f.collection_select :route_id, Route.all, :id, :name, {}, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label t('.sort') %>
-    <%= f.select :order_carriage, [true, false], {}, class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit t('.submit', action: @train.new_record? ? 'Создать' : 'Изменить' ), class: 'btn btn-primary' %>
+    <%= f.submit t('.submit', action: train.new_record? ? 'Создать' : 'Изменить' ), class: 'btn btn-primary' %>
   </div>
 <% end %>

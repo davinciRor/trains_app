@@ -1,6 +1,6 @@
 <h1><%= t('.title')%></h1>
 
-<%= render 'form' %>
+<%= render 'form', train: @train, not_index: true %>
 
 <%= link_to t('common.show'), [:admin, @train] %> |
 <%= link_to t('common.back'), admin_trains_path %>

@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       resources :carriages, only: [:new, :create]
     end
 
-    resources :routes
+    resources :routes do
+      patch :update_name
+    end
     resources :carriages, only: [:show]
     resources :tickets, only: [:index, :show, :destroy]
   end
